@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="66942ffb-28ad-45ce-8db2-6bcb7fd5b577" name="FOOTBALL" url="http://localhost">
+        <fileTransfer mountedRoot="C:\Users\Avan Peltier\Documents\GitHub\FOOTBALL" accessType="MOUNT" port="0" />
+      </webServer>
+    </option>
+  </component>
+</project>

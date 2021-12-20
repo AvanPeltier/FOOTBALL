@@ -1,0 +1,7 @@
+version: "3.9"
+services:
+  chanelle:
+    build: ./
+    container_name: FOOTBALL
+    restart: unless-stopped
+

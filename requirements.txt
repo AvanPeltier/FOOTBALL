@@ -1,0 +1,3 @@
+Flask~=1.1.2
+slack~=0.0.2
+slackeventsapi~=3.0.0
