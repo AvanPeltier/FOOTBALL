@@ -1,7 +1,7 @@
 import os
 import time
 
-from slack import WebClient
+import slack
 from slackeventsapi import SlackEventAdapter
 from flask import Flask
 from yahoo_oauth import OAuth2
@@ -9,7 +9,7 @@ import yahoo_fantasy_api as yfa
 
 app = Flask(__name__)
 
-slack_web_client = WebClient(token=os.getenv("SLACKBOT_TOKEN"))
+slack_web_client = slack.WebClient(token=os.getenv("SLACKBOT_TOKEN"))
 slack_events_adapter = SlackEventAdapter(os.getenv("SIGNING_SECRET"), "/slack/events", app)
 
 MESSAGE_BLOCK = {
