@@ -4,9 +4,9 @@ import time
 import slack
 from slackeventsapi import SlackEventAdapter
 from flask import Flask
-from yahoo_oauth import OAuth2
+"""from yahoo_oauth import OAuth2
 import yahoo_fantasy_api as yfa
-
+"""
 app = Flask(__name__)
 
 slack_web_client = slack.WebClient(token=os.getenv("SLACKBOT_TOKEN"))
