@@ -1,7 +1,7 @@
 import os
 import time
 
-from slack_sdk import WebClient
+from slack import WebClient
 from slackeventsapi import SlackEventAdapter
 from flask import Flask
 from yahoo_oauth import OAuth2
