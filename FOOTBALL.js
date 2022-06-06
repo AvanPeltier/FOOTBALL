@@ -35,10 +35,10 @@ slackEvents.on('message', (_event, respond) => {
    const eventServer = await slackEvents.start(port);
    console.log(`Listening for events on ${eventServer.address().port}`);
 })();
-(async () => {
+/*(async () => {
     const interactServer = await slackInteractions.start(port);
     console.log(`Listening for events on ${interactServer.address().port}`);
  })();
-
+*/
 server.listen(port);
 console.log("Ran");
