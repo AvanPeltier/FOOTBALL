@@ -1,11 +1,19 @@
-const  { InstallProvider, defaultCallbackFailure } = require('@slack/oauth');
+/*const  { InstallProvider, defaultCallbackFailure } = require('@slack/oauth');
 const { createEventAdapter } = require('@slack/events-api');
 const { createMessageAdapter } = require('@slack/interactive-messages')
 const YahooFantasy = require('yahoo-fantasy');
 const { createServer } = require('http');
+*/
+const { App } = require("@slack/bolt");
+const port = process.env.PORT || 3000;
 
-const port = process.env.PORT || 8080;
-
+const app = new App({
+    token: BOT_TOKEN,
+    signingSecret: SLACK_SIGNING_SECRET,
+    socketMode: true,
+    appToken: SOCKET_TOKEN
+});
+/*
 const yf = new YahooFantasy(
     process.env.APPLICATION_KEY,
     process.env.APPLICATION_SECRET
@@ -48,4 +56,21 @@ slackEvents.on('message', (event, respond) => {
 })().catch(() => {
     console.log('Catch warning')
 });
+*/
+
+app.command("/hello", async({command, ack, say}) => {
+    try{
+        await ack();
+        let txt = command.text;
+        if (txt == null){
+            say(txt + "Hello World");
+        }
+
+    }
+    catch(error){
+        console.log("err");
+        console.log(error);
+    }
+});
+app.start(port);
 console.log("Ran");
