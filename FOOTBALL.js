@@ -8,10 +8,10 @@ const { App } = require("@slack/bolt");
 const port = process.env.PORT || 3000;
 
 const app = new App({
-    token: SLACK_CLIENT_SECRET,
-    signingSecret: SLACK_SIGNING_SECRET,
+    token: process.env.SLACK_CLIENT_SECRET,
+    signingSecret: process.env.SLACK_SIGNING_SECRET,
     socketMode: true,
-    appToken: SOCKET_TOKEN
+    appToken: process.env.SOCKET_TOKEN
 });
 /*
 const yf = new YahooFantasy(
