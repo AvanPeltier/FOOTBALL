@@ -1,4 +1,4 @@
-const  { InstallProvider } = require('@slack/oauth');
+const  { InstallProvider, defaultCallbackFailure } = require('@slack/oauth');
 const { createEventAdapter } = require('@slack/events-api');
 const { createMessageAdapter } = require('@slack/interactive-messages')
 const YahooFantasy = require('yahoo-fantasy');
@@ -34,7 +34,7 @@ slackEvents.on('message', (_event, respond) => {
 (async () => {
    const eventServer = await slackEvents.start(port);
    console.log(`Listening for events on ${eventServer.address().port}`);
-})();
+})().catch(defaultCallbackFailure);
 /*(async () => {
     const interactServer = await slackInteractions.start(port);
     console.log(`Listening for events on ${interactServer.address().port}`);
@@ -42,5 +42,5 @@ slackEvents.on('message', (_event, respond) => {
 */
 (async () => {
     server.listen(port);
-})();
+})().catch(defaultCallbackFailure);
 console.log("Ran");
