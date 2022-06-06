@@ -18,7 +18,7 @@ const server = createServer((req, res) => {
     if (req.url === '/slack/oauth_redirect'){
         installer.handleCallback(req, res);
     }
-})
+});
 const slackSigningSecret = process.env.SLACK_SIGNING_SECRET;
 const slackEvents = createEventAdapter(slackSigningSecret, 
 );
@@ -43,7 +43,7 @@ slackEvents.on('message', (event, respond) => {
 });
 
 (async () => {
-    server.listen(port);
+    server.listen(8080, "172.30.173.236");
 })().catch(() => {
     console.log('Catch warning')
 });
