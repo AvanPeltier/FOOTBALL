@@ -1,4 +1,4 @@
-const { InstallerProvider} = require('@slack/oauth');
+const   InstallerProvider  = require('@slack/oauth');
 const { createEventAdapter } = require('@slack/events-api');
 const { createMessageAdapter } = require('@slack/interactive-messages')
 const YahooFantasy = require('yahoo-fantasy');
