@@ -4,6 +4,7 @@
   "description": "Fantasy Football Slack app",
   "main": "FOOTBALL.js",
   "scripts": {
+    "start": "FOOTBALL.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
