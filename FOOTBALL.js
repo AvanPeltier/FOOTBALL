@@ -30,20 +30,20 @@ slackEvents.on('message', (event, respond) => {
 });
 
 (async () => {
-   const eventServer = await slackEvents.start(port);
+   const eventServer = await slackEvents.start(3002);
    console.log(`Listening for events on ${eventServer.address().port}`);
 })().catch((error) => {
     console.log(error);
 });
 (async () => {
-    const interactServer = await slackInteractions.start(port);
+    const interactServer = await slackInteractions.start(3001);
     console.log(`Listening for events on ${interactServer.address().port}`);
  })().catch(() => {
     console.log('Catch warning')
 });
 
 (async () => {
-    server.listen(8080, "172.30.173.236");
+    server.listen(3000, "172.30.173.236");
 })().catch(() => {
     console.log('Catch warning')
 });
