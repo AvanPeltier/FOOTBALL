@@ -4,6 +4,8 @@ const { createMessageAdapter } = require('@slack/interactive-messages')
 const YahooFantasy = require('yahoo-fantasy');
 const { createServer } = require('http');
 
+const port = process.env.PORT || 3000;
+
 const yf = new YahooFantasy(
     process.env.APPLICATION_KEY,
     process.env.APPLICATION_SECRET
@@ -30,9 +32,9 @@ slackEvents.on('message', (_event, respond) => {
 });
 
 (async () => {
-    server = await slackEvents.start(8080);
+    server = await slackEvents.start(port);
     console.log('Listening for events on ${server.address().port}');
 });
 
-server.listen(3000);
+server.listen(port);
 console.log("Ran");
