@@ -16,3 +16,6 @@ const installer = new InstallerProvider({
 const slackSigningSecret = process.env.SLACK_SIGNING_SECRET;
 const slackEvents = createEventAdapter(slackSigningSecret);
 const slackInteractions = createMessageAdapter(slackSigningSecret);
+
+
+console.log("Ran");
