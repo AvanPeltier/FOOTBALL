@@ -8,7 +8,7 @@ const { App } = require("@slack/bolt");
 const port = process.env.PORT || 3000;
 
 const app = new App({
-    token: BOT_TOKEN,
+    token: SLACK_CLIENT_SECRET,
     signingSecret: SLACK_SIGNING_SECRET,
     socketMode: true,
     appToken: SOCKET_TOKEN
