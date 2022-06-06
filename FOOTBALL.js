@@ -43,7 +43,7 @@ slackEvents.on('message', (event, respond) => {
 });
 
 (async () => {
-    server.listen(3000, "172.30.173.236");
+    server.listen(23451, "172.30.173.236");
 })().catch(() => {
     console.log('Catch warning')
 });
