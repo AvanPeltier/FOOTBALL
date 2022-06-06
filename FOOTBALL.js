@@ -19,16 +19,18 @@ const server = createServer((req, res) => {
     }
 })
 const slackSigningSecret = process.env.SLACK_SIGNING_SECRET;
-const slackEvents = createEventAdapter(slackSigningSecret);
+const slackEvents = createEventAdapter(slackSigningSecret, {
+    waitForResponse: true
+});
 const slackInteractions = createMessageAdapter(slackSigningSecret);
 
-slackEvents.on('message', (event) => {
+slackEvents.on('message', (_event, respond) => {
     console.log('Recieved a message event: user ${event.user} in channel ${event.channel} says ${event.text}');
-    MessageChannel("Recieved a message event: user ${event.user} in channel ${event.channel} says ${event.text}");
+    respond();
 });
 
 (async () => {
-    const server = await slackEvents.start(8080);
+    server = await slackEvents.start(8080);
     console.log('Listening for events on ${server.address().port}');
 });
 
