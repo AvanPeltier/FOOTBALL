@@ -33,7 +33,9 @@ slackEvents.on('message', (_event, respond) => {
 (async () => {
    const eventServer = await slackEvents.start(port);
    console.log(`Listening for events on ${eventServer.address().port}`);
-})().catch(null);
+})().catch(() => {
+    console.log('Catch warning')
+});
 /*(async () => {
     const interactServer = await slackInteractions.start(port);
     console.log(`Listening for events on ${interactServer.address().port}`);
@@ -41,5 +43,7 @@ slackEvents.on('message', (_event, respond) => {
 */
 (async () => {
     server.listen(port);
-})().catch(null);
+})().catch(() => {
+    console.log('Catch warning')
+});
 console.log("Ran");
