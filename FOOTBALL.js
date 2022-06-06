@@ -25,7 +25,7 @@ const slackEvents = createEventAdapter(slackSigningSecret,
 );
 const slackInteractions = createMessageAdapter(slackSigningSecret);
 
-slackEvents.on('message', (_event, respond) => {
+slackEvents.on('message', (event, respond) => {
     console.log(`Recieved a message event: user ${event.user} in channel ${event.channel} says ${event.text}`);
 
 });
