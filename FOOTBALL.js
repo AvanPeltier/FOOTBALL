@@ -36,5 +36,5 @@ slackEvents.on('message', (_event, respond) => {
     console.log('Listening for events on ${server.address().port}');
 });
 
-server.listen(port);
+//server.listen(port);
 console.log("Ran");
