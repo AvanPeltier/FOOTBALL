@@ -48,19 +48,5 @@ slackEvents.on('message', (event, respond) => {
     console.log('Catch warning')
 });
 
-app.command("/hello", async({command, ack, say}) => {
-    try{
-        await ack();
-        let txt = command.text;
-        if (txt == null){
-            say(txt + "Hello World");
-        }
 
-    }
-    catch(error){
-        console.log("err");
-        console.log(error);
-    }
-});
-app.start(port);
 console.log("Ran");
