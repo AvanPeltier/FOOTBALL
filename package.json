@@ -19,6 +19,7 @@
   "homepage": "https://github.com/AvanPeltier/FOOTBALL#readme",
   "dependencies": {
     "@slack/events-api": "^3.0.1",
+    "@slack/interactive-messages": "^2.0.2",
     "@slack/oauth": "^2.5.2",
     "@slack/web-api": "^6.7.1",
     "yahoo-fantasy": "^5.1.0"
