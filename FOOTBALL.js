@@ -30,7 +30,7 @@ slackEvents.on('message', (_event, respond) => {
     console.log('Recieved a message event: user ${event.user} in channel ${event.channel} says ${event.text}');
     respond();
 });
- server.start();
+
 (async () => {
     server = await slackEvents.start(port);
     console.log('Listening for events on ${server.address().port}');
