@@ -4,7 +4,7 @@ const { createMessageAdapter } = require('@slack/interactive-messages')
 const YahooFantasy = require('yahoo-fantasy');
 const { createServer } = require('http');
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 
 const yf = new YahooFantasy(
     process.env.APPLICATION_KEY,
