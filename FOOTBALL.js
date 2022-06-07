@@ -31,13 +31,13 @@ slackEvents.on('message', (event) => {
 
 (async () => {
    const eventServer = await slackEvents.start(3002);
-   console.log(`Listening for events on ${eventServer.address().port}`);
+   console.log(`Listening for events on ${eventServer.address().address}`);
 })().catch((error) => {
     console.log(error);
 });
 (async () => {
     const interactServer = await slackInteractions.start(3001);
-    console.log(`Listening for events on ${interactServer.address()}`);
+    console.log(`Listening for events on ${interactServer.address().address}`);
  })().catch(() => {
     console.log('Catch warning')
 });
