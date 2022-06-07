@@ -24,7 +24,7 @@ const slackEvents = createEventAdapter(slackSigningSecret,
 );
 const slackInteractions = createMessageAdapter(slackSigningSecret);
 
-slackEvents.on('message', (event, respond) => {
+slackEvents.on('message', (event) => {
     console.log(`Recieved a message event: user ${event.user} in channel ${event.channel} says ${event.text}`);
 
 });
@@ -41,12 +41,12 @@ slackEvents.on('message', (event, respond) => {
  })().catch(() => {
     console.log('Catch warning')
 });
-
-/*(async () => {
-    server.listen(3000, "172.30.173.236");
+/*
+(async () => {
+    
 })().catch(() => {
     console.log('Catch warning')
 });
 */
-
+server.listen(3000);
 console.log("Ran");
