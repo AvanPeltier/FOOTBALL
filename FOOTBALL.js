@@ -37,7 +37,7 @@ slackEvents.on('message', (event) => {
 });
 (async () => {
     const interactServer = await slackInteractions.start(3001);
-    console.log(`Listening for events on ${interactServer.address().port}`);
+    console.log(`Listening for events on ${interactServer.address()}`);
  })().catch(() => {
     console.log('Catch warning')
 });
