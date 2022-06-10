@@ -14,11 +14,11 @@ const installer = new InstallProvider({
     clientSecret: process.env.SLACK_CLIENT_SECRET,
     stateSecret: 'current-state'
 });
-const server = createServer((req, res) => {
+/*const server = createServer((req, res) => {
     if (req.url === '/slack/oauth_redirect'){
         installer.handleCallback(req, res);
     }
-});
+});*/
 const slackSigningSecret = process.env.SLACK_SIGNING_SECRET;
 const slackEvents = createEventAdapter(slackSigningSecret, 
 );
