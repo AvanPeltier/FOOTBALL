@@ -30,17 +30,19 @@ const app = new App({
 app.message('hello', async ({message, say}) => {
     await say(`I'm alive, Howdy <@${message.user}>`);
 });
-/*
+
 const installer = new InstallProvider({
     clientId: process.env.SLACK_CLIENT_ID,
     clientSecret: process.env.SLACK_CLIENT_SECRET,
     stateSecret: process.env.STATE
 });
+
 const server = createServer((req, res) => {
     if (req.url === '/slack/oauth_redirect'){
         installer.handleCallback(req, res);
     }
 });
+/*
 const slackSigningSecret = process.env.SLACK_SIGNING_SECRET;
 const slackEvents = createEventAdapter(slackSigningSecret);
 const slackInteractions = createMessageAdapter(slackSigningSecret);
