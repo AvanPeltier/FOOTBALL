@@ -30,7 +30,11 @@ slackEvents.on('message', (event) => {
 });
 
 (async () => {
-   const eventServer = await slackEvents.start(3002);
+/*    slackEvents.createServer(
+        
+    )*/
+   const eventServer = await slackEvents.createServer();
+   eventServer = await slackEvents.start(3002);
    console.log(`Listening for events on ${eventServer.address().address}`);
 })().catch((error) => {
     console.log(error);
