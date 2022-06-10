@@ -14,16 +14,16 @@ const installer = new InstallProvider({
     clientSecret: process.env.SLACK_CLIENT_SECRET,
     stateSecret: 'current-state'
 });
-/*const server = createServer((req, res) => {
+const server = createServer((req, res) => {
     if (req.url === '/slack/oauth_redirect'){
         installer.handleCallback(req, res);
     }
-});*/
+});
 const slackSigningSecret = process.env.SLACK_SIGNING_SECRET;
 const slackEvents = createEventAdapter(slackSigningSecret, 
 );
 const slackInteractions = createMessageAdapter(slackSigningSecret);
-const eventServer = createServer(slackEvents.addListener());
+const eventServer = createServer(slackEvents.requestListener());
 slackEvents.on('message', (event) => {
     console.log(`Recieved a message event: user ${event.user} in channel ${event.channel} says ${event.text}`);
 
