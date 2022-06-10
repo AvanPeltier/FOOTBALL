@@ -5,8 +5,8 @@ const YahooFantasy = require('yahoo-fantasy');
 const { createServer } = require('http');
 
 const port = process.env.PORT || 3000;
-/*const host = 'http://football-csh/FOOTBALL';
-const requestListener = function (req, res) {
+const host = 'http://football-csh/FOOTBALL';
+/*const requestListener = function (req, res) {
     res.writeHead(200);
     res.end("Server")
 };
