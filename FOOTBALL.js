@@ -29,7 +29,7 @@ const app = new App({
     clientSecret: process.env.SLACK_CLIENT_SECRET,
     stateSecret: 'state',
     scopes: ['app_mention', 'message.channels', 'message.im', 'message.mpim'],
-    installationStore: new FileInstallationStore()
+    //installationStore: new FileInstallationStore()
 });
 
 app.message('hello', async ({message, say}) => {
