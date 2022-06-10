@@ -25,10 +25,11 @@ const app = new App({
     signingSecret: process.env.SLACK_SIGNING_SECRET,
     socketMode: true,
     appToken: process.env.APP_TOKEN,
-    clientId: process.env.SLACK_CLIENT_ID,
+   /* clientId: process.env.SLACK_CLIENT_ID,
     clientSecret: process.env.SLACK_CLIENT_SECRET,
     stateSecret: 'state',
     installationStore: new FileInstallationStore()
+*/
 });
 
 app.message('hello', async ({message, say}) => {
