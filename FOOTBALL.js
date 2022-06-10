@@ -3,8 +3,15 @@ const { createEventAdapter } = require('@slack/events-api');
 const { createMessageAdapter } = require('@slack/interactive-messages')
 const YahooFantasy = require('yahoo-fantasy');
 const { createServer } = require('http');
-const port = process.env.PORT || 3000;
 
+const port = process.env.PORT || 3000;
+/*const host = 'http://football-csh/FOOTBALL';
+const requestListener = function (req, res) {
+    res.writeHead(200);
+    res.end("Server")
+};
+const httpServer = http.createServer(requestListener);
+*/
 const yf = new YahooFantasy(
     process.env.APPLICATION_KEY,
     process.env.APPLICATION_SECRET
@@ -24,17 +31,19 @@ const slackEvents = createEventAdapter(slackSigningSecret,
 );
 const slackInteractions = createMessageAdapter(slackSigningSecret);
 const eventServer = createServer(slackEvents.requestListener());
+
+
 slackEvents.on('message', (event) => {
     console.log(`Recieved a message event: user ${event.user} in channel ${event.channel} says ${event.text}`);
 
 });
-
-(async () => {
+/*(async () => {
     const interactServer = await slackInteractions.start(3001);
     console.log(`Listening for events on ${interactServer.address().address}`);
  })().catch(() => {
     console.log('Catch warning')
 });
+*/
 /*
 (async () => {
     
@@ -42,7 +51,7 @@ slackEvents.on('message', (event) => {
     console.log('Catch warning')
 });
 */
-server.listen(port, () => {
+eventServer.listen(port, () => {
     console.log(`Listening for events on ${eventServer.address()}`);
 });
 console.log("Ran");
