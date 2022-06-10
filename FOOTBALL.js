@@ -1,4 +1,4 @@
-const  { InstallProvider, defaultCallbackFailure } = require('@slack/oauth');
+const  { FileInstallationStore } = require('@slack/oauth');
 const  {App} = require('@slack/bolt');
 const { createEventAdapter } = require('@slack/events-api');
 const { createMessageAdapter } = require('@slack/interactive-messages')
@@ -29,7 +29,7 @@ const app = new App({
     clientSecret: process.env.SLACK_CLIENT_SECRET,
     stateSecret: 'state',
     scopes: ['app_mention', 'message.channels', 'message.im', 'message.mpim'],
-    installationStore: new InstallProvider()
+    installationStore: new FileInstallationStore()
 });
 
 app.message('hello', async ({message, say}) => {
