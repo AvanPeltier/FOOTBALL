@@ -23,22 +23,12 @@ const slackSigningSecret = process.env.SLACK_SIGNING_SECRET;
 const slackEvents = createEventAdapter(slackSigningSecret, 
 );
 const slackInteractions = createMessageAdapter(slackSigningSecret);
-
+const eventServer = createServer(slackEvents.addListener());
 slackEvents.on('message', (event) => {
     console.log(`Recieved a message event: user ${event.user} in channel ${event.channel} says ${event.text}`);
 
 });
 
-(async () => {
-/*    slackEvents.createServer(
-        
-    )*/
-   const eventServer = await slackEvents.createServer();
-   eventServer = await slackEvents.start(3002);
-   console.log(`Listening for events on ${eventServer.address().address}`);
-})().catch((error) => {
-    console.log(error);
-});
 (async () => {
     const interactServer = await slackInteractions.start(3001);
     console.log(`Listening for events on ${interactServer.address().address}`);
@@ -52,5 +42,7 @@ slackEvents.on('message', (event) => {
     console.log('Catch warning')
 });
 */
-server.listen(3000);
+server.listen(port, () => {
+    console.log(`Listening for events on ${eventServer.address().port}`);
+});
 console.log("Ran");
