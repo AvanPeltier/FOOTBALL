@@ -1,0 +1,25 @@
+{
+  "name": "football",
+  "version": "1.0.0",
+  "description": "Fantasy Football Slack app",
+  "main": "FOOTBALL.js",
+  "scripts": {
+    "start": "node FOOTBALL.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AvanPeltier/FOOTBALL.git"
+  },
+  "author": "Avan Peltier",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AvanPeltier/FOOTBALL/issues"
+  },
+  "homepage": "https://github.com/AvanPeltier/FOOTBALL#readme",
+  "dependencies": {
+    "@slack/bolt": "^3.11.1",
+    "dotenv": "^16.0.1",
+    "yahoo-fantasy": "^5.1.0"
+  }
+}
